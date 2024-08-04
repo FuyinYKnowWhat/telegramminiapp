@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telegram Web App</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <h1>Welcome to Jessica's Avocado Stall!</h1>
-    <p>Whether you're looking for the freshest avocados for your guacamole, seeking some ripe ones for your toast, or just exploring our avocado-themed merchandise, you've come to the right place!</p>
-    <button onclick="launchShop()">Get your avocados!</button>
-
+    <h1>Welcome to the Telegram Web App</h1>
+    <button id="sendData">Send Data to Bot</button>
     <script>
-        function launchShop() {
-            Telegram.WebApp.showAlert("We are open\nShop with us Mon-Sat!\nSunday orders delivered on Mon");
-        }
+        // Initialize the Telegram Web App
+        const tg = window.Telegram.WebApp;
+        tg.ready();
+
+        document.getElementById('sendData').addEventListener('click', () => {
+            tg.sendData("Some data"); // Sends data back to the bot
+        });
     </script>
 </body>
 </html>
