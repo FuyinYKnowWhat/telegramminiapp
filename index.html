@@ -2,20 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Telegram Web App</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avocado Shop</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the Telegram Web App</h1>
-    <button id="sendData">Send Data to Bot</button>
+    <div class="container" id="content">
+        <!-- Initial content for login will be here -->
+    </div>
     <script>
-        // Initialize the Telegram Web App
-        const tg = window.Telegram.WebApp;
-        tg.ready();
+        function loadLoginPage() {
+            document.getElementById('content').innerHTML = `
+                <h1>WE ARE OPEN</h1>
+                <p>Shop with us Mon-Sat!</p>
+                <input type="password" placeholder="Password" id="password">
+                <button id="login-button">🚀</button>
+                <p>📅 Sun orders delivered on Mon.</p>
+            `;
+            document.getElementById('login-button').addEventListener('click', loadMainPage);
+        }
 
-        document.getElementById('sendData').addEventListener('click', () => {
-            tg.sendData("Some data"); // Sends data back to the bot
-        });
+        function loadMainPage() {
+            document.getElementById('content').innerHTML = `
+                <h1>WE ARE OPEN</h1>
+                <p>Shop with us Mon-Sat!</p>
+                <button id="play-button">Let's play with BB</button>
+                <p>📅 Sun orders delivered on Mon.</p>
+                <button id="change-account-button" class="top-right">Change account</button>
+            `;
+            document.getElementById('change-account-button').addEventListener('click', loadLoginPage);
+        }
+
+        // Load the login page initially
+        loadLoginPage();
     </script>
 </body>
 </html>
