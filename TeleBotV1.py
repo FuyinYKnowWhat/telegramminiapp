@@ -8,6 +8,7 @@ from telebot import types
 import argparse
 import cv2
 import csv
+import json
 API_KEY = '7203669480:AAE8M929NIKKHPt26404dYH8t6rzy-B5LPU'
 bot = telebot.TeleBot(API_KEY)
 
@@ -151,28 +152,40 @@ def consultarProductos(message):
             bot.send_photo(chat_id,photo=open(f'catalogo/{campos[0]}.png', 'rb'))
             bot.reply_to(message,f"{elementos['Nombre']} | {elementos['Talla']}")
 
+
+def create_shop_webapp_button():
+    keyboard = types.InlineKeyboardMarkup()
+    shop_button = types.InlineKeyboardButton(
+        text="Visit the shop",
+        web_app=types.WebAppInfo(url="https://fuyinyknowwhat.github.io/telegram-bot/")
+    )
+    keyboard.add(shop_button)
+    return keyboard
+
+
+
 '''
 ------------------------------------------------------------------------------------------------------------------------------------
 TELEGRAM:
 '''
 
 #LIST ALL PRODUCTS
-@bot.message_handler(commands=['listproducts'])
-def list_products(message):
-    response = "Product List:\n"
-    for product in products:
-        response += f'{product["BrandName"]} - {product["ItemName"]}: {product["Qty"]} available at {product["Price"]}\n'
-    bot.reply_to(message, response)
+@bot.message_handler(commands=['list'])
+def list_inventory(message):
+    chat_id = message.chat.id
+    bot.send_message(chat_id, "Here is the inventory list...")
+    # Implement the inventory list display logic here
 
 
-#START
-@bot.message_handler(commands=['start', 'help'])
-def send_welcome(message):
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    web_app_button = types.KeyboardButton(text="Visit the shop", web_app=types.WebAppInfo(url="https://your-web-app-url"))
-    markup.add(web_app_button)
-    bot.send_message(message.chat.id, "Welcome! Please choose an option:", reply_markup=markup)
-    
+
+# Set the menu button to display only the hamburger icon
+def set_menu_button(chat_id):
+    menu_button = types.MenuButtonCommands(
+        text=""  # Setting the text to an empty string to display only the hamburger icon
+    )
+    bot.set_chat_menu_button(chat_id=chat_id, menu_button=menu_button)
+
+
 #MODOS
 @bot.message_handler(commands=['modostock'])
 def stock(message):
@@ -186,12 +199,35 @@ def productos(message):
 def admin(message):
     guardarModo('admin',message)
 
+# Start command handler
+@bot.message_handler(commands=['start', 'help'])
+def send_welcome(message):
+    chat_id = message.chat.id
+    set_menu_button(chat_id)
+    bot.send_message(chat_id, "Welcome to the shop! Use the menu to visit the shop or view the inventory list.")
+
+
+# Command handler for visiting the shop
+@bot.message_handler(commands=['visitshop'])
+def visit_shop(message):
+    chat_id = message.chat.id
+    bot.send_message(chat_id, "Click the button below to visit the shop.", reply_markup=create_shop_webapp_button())
+
+
+# Command handler for viewing the inventory
+@bot.message_handler(commands=['viewinventory'])
+def view_inventory(message):
+    chat_id = message.chat.id
+    bot.send_message(chat_id, "Here is the inventory list...")
+    # Implement the inventory list display logic here
+
+
 @bot.callback_query_handler(func=lambda call: True)
 def handle_callback_query(call):
     if call.data == "visit_shop":
         bot.send_message(call.message.chat.id, "Welcome to Jessica's Avocado Stall! 🥑\n\nWhether you're looking for the freshest avocados for your guacamole, seeking some ripe ones for your toast, or just exploring our avocado-themed merchandise, you've come to the right place!\n\nTap on the button below to dive into our green world of avocados today! 🌱", reply_markup=create_shop_button())
     elif call.data == "view_inventory":
-        list_products(call.message)
+        list_inventory(call.message)
     elif call.data == "get_avocados":
         bot.send_message(call.message.chat.id, "We are open\nShop with us Mon-Sat!\n\nSunday orders delivered on Mon", reply_markup=create_avocado_popup())
     elif call.data == "new_order":
@@ -239,7 +275,7 @@ now = datetime.now()
 date1 = current_date_format(now)
 date2 = date1
 if __name__ == '__main__':
-    print('bot en marcha')
+    print('Bot Running!')
     bot.infinity_polling()
     print('fin')
     #rutina copia de seguridad --> DIARIA
