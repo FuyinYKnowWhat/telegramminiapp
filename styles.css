@@ -4,18 +4,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
+    overflow-y: auto; /* Allow vertical scrolling */
 }
 
+
 .container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    padding: 20px; /* Add padding if needed */
 }
+
 
 input[type="password"] {
     background-color: #000;
