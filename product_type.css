@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1a1b1f; /* Similar to Telegram chat background */
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.button-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.type-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.type-button:hover {
+    transform: scale(1.05);
+}
+
+.icon {
+    font-size: 24px;
+}
+
+.arrow {
+    font-size: 24px;
+}
