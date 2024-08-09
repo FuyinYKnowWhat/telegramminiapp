@@ -2,14 +2,30 @@ body {
     font-family: Arial, sans-serif;
     background-color: #2a2a2a;
     color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin: 0;
     overflow-x: hidden;
     overflow-y: auto;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.content-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 60px; /* Space for the button */
 }
 
 .container {
@@ -19,8 +35,6 @@ body {
     padding: 20px;
     width: 100%;
     box-sizing: border-box;
-    flex: 1;
-    padding-bottom: 100px; /* Add extra padding to ensure no content is covered */
 }
 
 .item {
@@ -32,16 +46,16 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 200px; /* Shorten the height of the item container */
+    height: 200px;
 }
 
 .item-img {
     font-size: 40px;
-    margin-bottom: 5px; /* Reduce margin to fit within shorter height */
+    margin-bottom: 5px;
 }
 
 .item p {
-    margin: 3px 0; /* Reduce margins to fit within shorter height */
+    margin: 3px 0;
     flex-grow: 1;
     display: flex;
     align-items: center;
@@ -55,7 +69,7 @@ body {
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 5px; /* Reduce margin */
+    margin-top: 5px;
     width: 100%;
 }
 
@@ -78,6 +92,15 @@ body {
     font-size: 18px;
 }
 
+#view-trolley-container {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    text-align: center;
+}
+
 #view-trolley {
     background-color: #28a745;
     color: white;
@@ -86,21 +109,16 @@ body {
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
-    position: fixed; /* Fix the button at the bottom */
-    bottom: 0;
-    left: 0;
-    text-align: center;
     box-sizing: border-box;
-    z-index: 1000;
     display: none; /* Initially hidden */
 }
 
 .badge {
     position: absolute;
-    top: 5px; /* Adjusted to be inside the container */
-    right: 5px; /* Adjusted to be inside the container */
+    top: 5px;
+    right: 5px;
     background-color: #007bff;
     color: white;
     border-radius: 50%;
-    padding: 5px 8px; /* Adjusted padding to fit within the container */
+    padding: 5px 8px;
 }
