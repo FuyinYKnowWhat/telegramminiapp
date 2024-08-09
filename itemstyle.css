@@ -27,10 +27,23 @@ body {
     padding: 10px;
     text-align: center;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .item-img {
     font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.item p {
+    margin: 5px 0;
+    flex-grow: 1; /* Allows the name and price to grow and fill the space evenly */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .item button {
@@ -76,6 +89,7 @@ body {
     left: 0;
     text-align: center;
     box-sizing: border-box;
+    z-index: 1000; /* Ensure it's always on top */
 }
 
 .badge {
