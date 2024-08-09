@@ -6,22 +6,22 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 0;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    overflow-y: auto; /* Enable vertical scrolling */
-    width: 100vw; /* Ensure body takes full viewport width */
-    height: 100vh; /* Ensure body takes full viewport height */
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100vw;
+    height: 100vh;
 }
 
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust grid to be responsive */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 10px;
     padding: 20px;
     width: 100%;
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-    flex: 1; /* Allow the container to grow and fill the available space */
+    box-sizing: border-box;
+    flex: 1;
+    margin-bottom: 60px; /* Add some margin at the bottom to ensure no content is covered */
 }
-
 
 .item {
     background-color: #1a1a1a;
@@ -42,7 +42,7 @@ body {
 
 .item p {
     margin: 5px 0;
-    flex-grow: 1; /* Allows the name and price to grow and fill the space evenly */
+    flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,7 +56,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-    width: 100%; /* Ensure button takes full width */
+    width: 100%;
 }
 
 .item .quantity-controls {
@@ -86,12 +86,12 @@ body {
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
-    position: sticky;
+    position: fixed; /* Fix the button at the bottom */
     bottom: 0;
     left: 0;
     text-align: center;
     box-sizing: border-box;
-    z-index: 1000; /* Ensure it's always on top */
+    z-index: 1000;
 }
 
 .badge {
