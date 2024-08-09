@@ -14,100 +14,110 @@
     <button id="view-trolley">VIEW TROLLEY</button>
 
     <script>
-        const items = [
-            { name: "Chilled Watermelon", price: 10 },
-            { name: "Cool Sarsi", price: 10 },
-            { name: "Doublemint", price: 10 },
-            { name: "Grape Honey", price: 10 },
-            { name: "Grape Ribena", price: 10 },
-            { name: "Lemon Cola", price: 10 },
-            { name: "Lemon Grapefruit", price: 10 },
-            { name: "Mango Yakult", price: 10 },
-            { name: "Mixed Berries", price: 10 },
-        ];
+    const items = [
+    { name: "Chilled Watermelon", price: 10 },
+    { name: "Cool Sarsi", price: 10 },
+    { name: "Doublemint", price: 10 },
+    { name: "Grape Honey", price: 10 },
+    { name: "Grape Ribena", price: 10 },
+    { name: "Lemon Cola", price: 10 },
+    { name: "Lemon Grapefruit", price: 10 },
+    { name: "Mango Yakult", price: 10 },
+    { name: "Mixed Berries", price: 10 },
+];
 
-        const container = document.getElementById('items-container');
+const container = document.getElementById('items-container');
+const trolleyButton = document.getElementById('view-trolley');
+let cartItemCount = 0;
 
-        items.forEach((item, index) => {
-            const itemDiv = document.createElement('div');
-            itemDiv.classList.add('item');
+items.forEach((item, index) => {
+    const itemDiv = document.createElement('div');
+    itemDiv.classList.add('item');
 
-            const itemImg = document.createElement('div');
-            itemImg.classList.add('item-img');
-            itemImg.textContent = '🍼'; // Placeholder emoji for the image
-            
-            const itemName = document.createElement('p');
-            itemName.textContent = item.name;
+    const itemImg = document.createElement('div');
+    itemImg.classList.add('item-img');
+    itemImg.textContent = '🍼'; // Placeholder emoji for the image
+    
+    const itemName = document.createElement('p');
+    itemName.textContent = item.name;
 
-            const itemPrice = document.createElement('p');
-            itemPrice.textContent = `$${item.price}`;
+    const itemPrice = document.createElement('p');
+    itemPrice.textContent = `$${item.price}`;
 
-            const addButton = document.createElement('button');
-            addButton.textContent = 'ADD';
-            addButton.onclick = () => {
-                addButton.style.display = 'none';
-                quantityControls.style.display = 'flex';
-                updateBadge(itemImg, 1);
-            };
+    const addButton = document.createElement('button');
+    addButton.textContent = 'ADD';
+    addButton.onclick = () => {
+        addButton.style.display = 'none';
+        quantityControls.style.display = 'flex';
+        updateBadge(itemImg, 1);
+        cartItemCount++;
+        trolleyButton.style.display = 'block'; // Show trolley button when an item is added
+    };
 
-            const quantityControls = document.createElement('div');
-            quantityControls.classList.add('quantity-controls');
-            
-            const minusButton = document.createElement('button');
-            minusButton.textContent = '-';
-            minusButton.onclick = () => {
-                let quantity = parseInt(quantitySpan.textContent);
-                if (quantity > 1) {
-                    quantity -= 1;
-                    updateBadge(itemImg, quantity);
-                } else {
-                    quantityControls.style.display = 'none';
-                    addButton.style.display = 'block';
-                    removeBadge(itemImg);
-                }
-                quantitySpan.textContent = quantity;
-            };
-
-            const plusButton = document.createElement('button');
-            plusButton.textContent = '+';
-            plusButton.onclick = () => {
-                let quantity = parseInt(quantitySpan.textContent) + 1;
-                quantitySpan.textContent = quantity;
-                updateBadge(itemImg, quantity);
-            };
-
-            const quantitySpan = document.createElement('span');
-            quantitySpan.textContent = '1';
-
-            quantityControls.appendChild(minusButton);
-            quantityControls.appendChild(quantitySpan);
-            quantityControls.appendChild(plusButton);
-
-            itemDiv.appendChild(itemImg);
-            itemDiv.appendChild(itemName);
-            itemDiv.appendChild(itemPrice);
-            itemDiv.appendChild(addButton);
-            itemDiv.appendChild(quantityControls);
-
-            container.appendChild(itemDiv);
-        });
-
-        function updateBadge(imgElement, quantity) {
-            let badge = imgElement.parentElement.querySelector('.badge');
-            if (!badge) {
-                badge = document.createElement('div');
-                badge.classList.add('badge');
-                imgElement.parentElement.appendChild(badge);
-            }
-            badge.textContent = quantity;
-        }
-
-        function removeBadge(imgElement) {
-            const badge = imgElement.parentElement.querySelector('.badge');
-            if (badge) {
-                badge.remove();
+    const quantityControls = document.createElement('div');
+    quantityControls.classList.add('quantity-controls');
+    
+    const minusButton = document.createElement('button');
+    minusButton.textContent = '-';
+    minusButton.onclick = () => {
+        let quantity = parseInt(quantitySpan.textContent);
+        if (quantity > 1) {
+            quantity -= 1;
+            updateBadge(itemImg, quantity);
+        } else {
+            quantityControls.style.display = 'none';
+            addButton.style.display = 'block';
+            removeBadge(itemImg);
+            cartItemCount--;
+            if (cartItemCount === 0) {
+                trolleyButton.style.display = 'none'; // Hide trolley button if no items in cart
             }
         }
+        quantitySpan.textContent = quantity;
+    };
+
+    const plusButton = document.createElement('button');
+    plusButton.textContent = '+';
+    plusButton.onclick = () => {
+        let quantity = parseInt(quantitySpan.textContent) + 1;
+        quantitySpan.textContent = quantity;
+        updateBadge(itemImg, quantity);
+    };
+
+    const quantitySpan = document.createElement('span');
+    quantitySpan.textContent = '1';
+
+    quantityControls.appendChild(minusButton);
+    quantityControls.appendChild(quantitySpan);
+    quantityControls.appendChild(plusButton);
+
+    itemDiv.appendChild(itemImg);
+    itemDiv.appendChild(itemName);
+    itemDiv.appendChild(itemPrice);
+    itemDiv.appendChild(addButton);
+    itemDiv.appendChild(quantityControls);
+
+    container.appendChild(itemDiv);
+});
+
+function updateBadge(imgElement, quantity) {
+    let badge = imgElement.parentElement.querySelector('.badge');
+    if (!badge) {
+        badge = document.createElement('div');
+        badge.classList.add('badge');
+        imgElement.parentElement.appendChild(badge);
+    }
+    badge.textContent = quantity;
+}
+
+function removeBadge(imgElement) {
+    const badge = imgElement.parentElement.querySelector('.badge');
+    if (badge) {
+        badge.remove();
+    }
+}
+
+
     </script>
 </body>
 </html>
