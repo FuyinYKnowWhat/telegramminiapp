@@ -20,7 +20,7 @@ body {
     width: 100%;
     box-sizing: border-box;
     flex: 1;
-    margin-bottom: 60px; /* Ensure no content is covered */
+    padding-bottom: 100px; /* Add extra padding to ensure no content is covered */
 }
 
 .item {
