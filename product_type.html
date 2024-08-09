@@ -9,21 +9,17 @@
 </head>
 <body>
     <script>
-        Telegram.WebApp.ready(function() {
-            Telegram.WebApp.expand();
-            Telegram.WebApp.BackButton.show();
-            Telegram.WebApp.onEvent('backButtonClicked', function() {
-                // Define the back button behavior
-                window.location.href = 'order.html'; // Navigate to the order page
-            });
-        });
+       Telegram.WebApp.BackButton.show();
+       Telegram.WebApp.onEvent('backButtonClicked', function() {
+        window.location.href = 'order.html';
+    });
     </script>
     <div class="container">
         <h1>TYPE</h1>
         <div class="button-list">
             <a href="#" class="type-button" onclick="window.location.href='item.html?type=1'">
                 <span class="icon">🌐</span>
-                <span class="text">DEVICE4</span>
+                <span class="text">DEVICE77</span>
                 <span class="arrow">➔</span>
             </a>
             <a href="#" class="type-button">
