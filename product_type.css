@@ -51,3 +51,21 @@ h1 {
 .icon, .arrow {
     font-size: 20px; /* Reduce the size of the icons */
 }
+
+.manual-back-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    border-radius: 5px; /* Rounded corners */
+}
+.manual-back-button .arrow {
+    font-size: 30px;
+    margin-right: 5px;
+}
