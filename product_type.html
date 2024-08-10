@@ -12,20 +12,25 @@
 </head>
 <body>
     <script>
-        if (window.Telegram && window.Telegram.WebApp) {
-            alert("WebApp object exists");
-        } else {
-            alert("WebApp object does NOT exist");
-        }
-        if (window.Telegram && window.Telegram.WebApp && typeof window.Telegram.WebApp.ready === "function") {
-        alert("ready function is available");
+        alert("Entered Product type");
         window.Telegram.WebApp.ready(function() {
-            alert("Telegram WebApp ready");
+            // Expand the mini-app
+            window.Telegram.WebApp.expand();
+            
+            // Show the back button
+            window.Telegram.WebApp.BackButton.show();
+            
+            // Alert the visibility status of the back button
+            alert("Back button visibility: " + window.Telegram.WebApp.BackButton.isVisible);
+            
+            // Set up the back button click behavior
+            window.Telegram.WebApp.BackButton.onClick(function() {
+                alert("Back button clicked");
+                window.location.href = 'order.html'; // Navigate to the previous page
+            });
         });
-        } else {
-            alert("ready function is NOT available");
-        }
     </script>
+    
     
     <div class="container">
         <h1>TYPE</h1>
