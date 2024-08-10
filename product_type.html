@@ -8,6 +8,25 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
+    <script>
+        alert("Entered Product type");
+        window.Telegram.WebApp.ready(function() {
+            // Expand the mini-app
+            window.Telegram.WebApp.expand();
+            
+            // Show the back button
+            window.Telegram.WebApp.BackButton.show();
+            
+            // Alert the visibility status of the back button
+            alert("Back button visibility: " + window.Telegram.WebApp.BackButton.isVisible);
+            
+            // Set up the back button click behavior
+            window.Telegram.WebApp.BackButton.onClick(function() {
+                alert("Back button clicked");
+                window.location.href = 'order.html'; // Navigate to the previous page
+            });
+        });
+    </script>
     <!-- Manual Back Button with Arrow -->
     <a href="order.html" class="manual-back-button">
         <span class="arrow">←</span> <!-- Back Arrow -->

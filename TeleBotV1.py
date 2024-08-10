@@ -9,7 +9,7 @@ import argparse
 import cv2
 import csv
 import json
-API_KEY = '7203669480:AAE8M929NIKKHPt26404dYH8t6rzy-B5LPU'
+API_KEY = '7360378964:AAHgR-GFM0Q2yFtsXJ73Dl6o2gvfQiy8Ckw'
 bot = telebot.TeleBot(API_KEY)
 
 '''
