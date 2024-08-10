@@ -6,13 +6,25 @@
     <title>Product Type</title>
     <link rel="stylesheet" href="product_type.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        alert("telegram-web-app.js loaded");
+    </script>
 </head>
 <body>
     <script>
-        alert("Entered Product type");
+        if (window.Telegram && window.Telegram.WebApp) {
+            alert("WebApp object exists");
+        } else {
+            alert("WebApp object does NOT exist");
+        }
+        if (window.Telegram && window.Telegram.WebApp && typeof window.Telegram.WebApp.ready === "function") {
+        alert("ready function is available");
         window.Telegram.WebApp.ready(function() {
             alert("Telegram WebApp ready");
         });
+        } else {
+            alert("ready function is NOT available");
+        }
     </script>
     
     <div class="container">
