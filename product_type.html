@@ -9,6 +9,13 @@
 </head>
 <body>
     <script>
+        // Show the back button
+        window.Telegram.WebApp.BackButton.show();
+         // Set up the back button click behavior
+         window.Telegram.WebApp.BackButton.onClick(function() {
+                alert("Back button clicked");
+                window.location.href = 'order.html'; // Navigate to the previous page
+            });clearInterval
         alert("Entered Product type");
         window.Telegram.WebApp.ready(function() {
             // Expand the mini-app
