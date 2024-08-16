@@ -157,7 +157,7 @@ def create_shop_webapp_button():
     keyboard = types.InlineKeyboardMarkup()
     shop_button = types.InlineKeyboardButton(
         text="Visit the shop",
-        web_app=types.WebAppInfo(url="https://fuyinyknowwhat.github.io/telegram-bot/")
+        web_app=types.WebAppInfo(url="https://fuyinyknowwhat.github.io/telegramminiapp/")
     )
     keyboard.add(shop_button)
     return keyboard
