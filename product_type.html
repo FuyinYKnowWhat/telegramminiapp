@@ -12,6 +12,20 @@
 </head>
 <body>
     <script>
+         // Expand the mini-app
+         window.Telegram.WebApp.expand();
+            
+            // Show the back button
+            window.Telegram.WebApp.BackButton.show();
+            
+            // Alert the visibility status of the back button
+            alert("Back button visibility: " + window.Telegram.WebApp.BackButton.isVisible);
+            
+            // Set up the back button click behavior
+            window.Telegram.WebApp.BackButton.onClick(function() {
+                alert("Back button clicked2");
+                window.location.href = 'order.html'; // Navigate to the previous page
+            });
         window.Telegram.WebApp.ready(function() {
             // Expand the mini-app
             window.Telegram.WebApp.expand();
@@ -39,7 +53,7 @@
         <div class="button-list">
             <a href="#" class="type-button" onclick="window.location.href='item.html?type=1'">
                 <span class="icon">🌐</span>
-                <span class="text">LATEST WOOHOO</span>
+                <span class="text">LATEST WOOHOO without ready function</span>
                 <span class="arrow">➔</span>
             </a>
             <a href="#" class="type-button">
