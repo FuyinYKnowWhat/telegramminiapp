@@ -3,21 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Product Type</title>
     <link rel="stylesheet" href="product_type.css">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
     <script>
-        // Show the back button
-        window.Telegram.WebApp.BackButton.show();
-         // Set up the back button click behavior
-         window.Telegram.WebApp.BackButton.onClick(function() {
-                alert("Back button clicked");
-                window.location.href = 'order.html'; // Navigate to the previous page
-            });
-        clearInterval
-        alert("Entered Product type");
         window.Telegram.WebApp.ready(function() {
             // Expand the mini-app
             window.Telegram.WebApp.expand();
@@ -30,7 +24,7 @@
             
             // Set up the back button click behavior
             window.Telegram.WebApp.BackButton.onClick(function() {
-                alert("Back button clicked");
+                alert("Back button clicked2");
                 window.location.href = 'order.html'; // Navigate to the previous page
             });
         });
