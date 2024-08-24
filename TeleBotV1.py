@@ -5,10 +5,10 @@ CONFIGURACIONES:
 from datetime import datetime
 import telebot
 from telebot import types
-import argparse
-import cv2
 import csv
 import json
+import pandas as pd
+
 API_KEY = '7360378964:AAHgR-GFM0Q2yFtsXJ73Dl6o2gvfQiy8Ckw'
 bot = telebot.TeleBot(API_KEY)
 
@@ -16,11 +16,6 @@ bot = telebot.TeleBot(API_KEY)
 ------------------------------------------------------------------------------------------------------------------------------------
 FUNCIONES:
 '''
-def guardarStock(stock):
-    fichero = open('stock.csv', 'w')
-    for elementos in stock:
-        fichero.write(f"{elementos['Id']};{elementos['Cantidad']};\n")
-    fichero.close()
 
 def create_inline_menu():
     keyboard = types.InlineKeyboardMarkup()
@@ -43,103 +38,78 @@ def create_avocado_popup():
     return keyboard
 
 
-def cargarStock(stock):
-    fichero = open('stock.csv', 'r')
-    datos = fichero.readlines()
-    for linea in datos:
-        campos = linea.split(';')
-        nuevo = {'Id':campos[0],'Cantidad':campos[1]}
-        stock.append(nuevo)
-    fichero.close
+def load_brands():
+    df = pd.read_excel('products.xlsx', sheet_name='Brand', header=None)
+    brands = []
 
-def current_date_format(date):
-    months = ("Enero", "Febrero", "Marzo", "Abri", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
-    day = date.day
-    month = months[date.month - 1]
-    year = date.year
-    messsage = str(day)+'_'+month+'_'+str(year)
-    return messsage
+    # Initialize column index
+    col_start = 0
 
-def copiaSeguridaStock(stock):
-    now = datetime.now()
-    date = current_date_format(now)
-    fichero = open(f'copias de seguridad/CS_stock({date}).csv', 'w')
-    for elementos in stock:
-        fichero.write(f"{elementos['Id']};{elementos['Cantidad']};\n")
-    fichero.close()
+    while col_start < df.shape[1]:
+        # Check if the column is the beginning of a new section (by checking if the header exists)
+        if pd.notna(df.iloc[0, col_start]):
+            section = df.iloc[:, col_start:col_start + 4].dropna(how='all')
+            section.columns = ["ID", "ParentID", "Type", "Name"]  # Assign proper column names
+            section_dict = section.iloc[1:].to_dict(orient='records')
+            brands.extend(section_dict)
+        
+        # Move to the next possible section
+        col_start += 5  # Assuming a 1-column gap between sections
 
-def cargarModo(modo):
-    fichero = open('modo.csv', 'r')
-    datos = fichero.readlines()
-    for linea in datos:
-        campos = linea.split(';')
-        modo[campos[0]] = campos[1]
-    fichero.close
+    # Write the collected data to JSON
+    with open('brands.json', 'w') as json_file:
+        json.dump(brands, json_file, indent=4)
 
-def guardarModo(modo,message):
-    print(f'Se a cambiado a modo de {modo}')
-    bot.reply_to(message,f'modo {modo}')
-    fichero = open('modo.csv', 'w')
-    if modo == 'stock':
-        fichero.write("stock;1;\nproductos;0;\nadmin;0;\n")
-    elif modo == 'productos':
-        fichero.write("stock;0;\nproductos;1;\nadmin;0;\n")
-    elif modo == 'admin':
-        fichero.write("stock;0;\nproductos;0;\nadmin;1;\n")
-    fichero.close()
+    print(f"Extracted {len(brands)} brand records.")
 
-def guardarCatalogo(catalogo):
-    fichero = open('catalogo.csv', 'w')
-    for elementos in catalogo:
-        fichero.write(f"{elementos['Id']};{elementos['Nombre']};{elementos['Talla']};\n")
-    fichero.close()
 
-def cargarCatalogo(catalogo):
-    fichero = open('catalogo.csv', 'r')
-    datos = fichero.readlines()
-    for linea in datos:
-        campos = linea.split(';')
-        nuevo = {'Id':campos[0],'Nombre':campos[1],'Talla':campos[2]}
-        catalogo.append(nuevo)
-    fichero.close   
+def load_items():
+    df = pd.read_excel('products.xlsx', sheet_name='Item', header=None)
+    items = []
 
-def editarStock(message):
-    stock = []
-    cargarStock(stock)
-    string = message.text
-    campos = string.split(' ')
-    if campos[1] != '?':
-        for elementos in stock:
-            ID = elementos['Id']
-            if ID == campos[0]:
-                bot.reply_to(message,'then = ' + elementos['Cantidad'])
-                elementos['Cantidad'] = int(elementos['Cantidad']) + int(campos[1])
-                bot.reply_to(message,'now = ' + str(elementos['Cantidad']))
-    elif campos[1] == '?':
-        for elementos in stock:
-            ID = elementos['Id']
-            if ID == campos[0]:
-                bot.reply_to(message,elementos['Cantidad'])
-                break
-    print(stock)
-    guardarStock(stock)   
+    col_start = 0
 
-def load_products():
-    products = []
-    with open('products.csv', 'r') as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            products.append({
-                "BrandName": row["BrandName"], 
-                "ItemName": row["ItemName"], 
-                "Qty": int(row["Qty"]),
-                "Price": float(row.get("Price", 0)),
-                "Category": row.get("Category", ""),
-                "SKU": row.get("SKU", "")
-            })
-    return products
+    while col_start < df.shape[1]:
+        if pd.notna(df.iloc[0, col_start]):
+            section = df.iloc[:, col_start:col_start + 7].dropna(how='all')  # Update to 7 columns
+            section.columns = ["ID", "ParentID", "Type", "Name", "Qty", "ParentName", "Code"]  # Add "Code" here
+            section_dict = section.iloc[1:].to_dict(orient='records')
+            items.extend(section_dict)
+        
+        col_start += 8  # Update the skip to 8 columns
 
-products = load_products()
+    with open('items.json', 'w') as json_file:
+        json.dump(items, json_file, indent=4)
+
+    print(f"Extracted {len(items)} item records.")
+
+
+def load_prices():
+    df = pd.read_excel('products.xlsx', sheet_name='Price', header=0)
+    prices = []
+
+    for _, row in df.iterrows():
+        price_record = {
+            "AccountID": row['Account ID'],
+            "ItemID": row['ItemID'],
+            "Price": row['Price'] if pd.notna(row['Price']) else "NA",
+            "Notes": row['Notes']
+        }
+        prices.append(price_record)
+    
+    with open('prices.json', 'w') as json_file:
+        json.dump(prices, json_file, indent=4)
+
+    print(f"Extracted {len(prices)} price records.")
+
+
+# Include this function in the main execution block
+if __name__ == '__main__':
+    load_brands()
+    load_items()
+    load_prices()  # Add this line
+    print('JSON files generated.')
+
 
 def consultarProductos(message):
     chat_id = 5608085328
@@ -187,17 +157,7 @@ def set_menu_button(chat_id):
 
 
 #MODOS
-@bot.message_handler(commands=['modostock'])
-def stock(message):
-    guardarModo('stock',message)
 
-@bot.message_handler(commands=['modoproductos'])
-def productos(message):
-    guardarModo('productos',message)
-
-@bot.message_handler(commands=['modoadmin'])
-def admin(message):
-    guardarModo('admin',message)
 
 # Start command handler
 @bot.message_handler(commands=['start', 'help'])
@@ -241,26 +201,10 @@ def new_order(call):
 
 
 #STOCK
-@bot.message_handler(commands=['stock'])
-def ImprimirStock(message):
-    stock = []
-    cargarStock(stock)
-    stockString = ''
-    for elementos in stock:
-        stockString = stockString +'\n'+ elementos['Id']+ '-->' + elementos['Cantidad']
-    bot.reply_to(message,stockString)
+
 
 #ANALISIS DE TEXTO
-@bot.message_handler(content_types=['text'],)
-def ComandoPrincipal(message):
-    modo ={}
-    cargarModo(modo)
-    if modo['stock'] == '1':
-        editarStock(message)
-    elif modo['productos'] == '1':
-        consultarProductos(message)
-    elif modo['admin'] == '1':
-        bot.reply_to(message,'modo admin')
+
 
 '''
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -272,18 +216,11 @@ PRUEBAS:
 MAIN:
 '''
 now = datetime.now()
-date1 = current_date_format(now)
-date2 = date1
 if __name__ == '__main__':
     print('Bot Running!')
     bot.infinity_polling()
     print('fin')
     #rutina copia de seguridad --> DIARIA
     now = datetime.now()
-    date1 = current_date_format(now)
-    if date1 != date2:
-        stock = []
-        cargarStock(stock)
-        copiaSeguridaStock(stock)
-        date2 = date1
+
 

@@ -1,0 +1,452 @@
+[
+    {
+        "ID": "BR-001",
+        "ParentID": 0,
+        "Type": "Category",
+        "Name": "DEVICE"
+    },
+    {
+        "ID": "BR-002",
+        "ParentID": 0,
+        "Type": "Category",
+        "Name": "DISPOSABLE"
+    },
+    {
+        "ID": "BR-003",
+        "ParentID": 0,
+        "Type": "Category",
+        "Name": "POD"
+    },
+    {
+        "ID": "SC-001",
+        "ParentID": "BR-001",
+        "Type": "SubCategory",
+        "Name": "DARK RIDER"
+    },
+    {
+        "ID": "SC-002",
+        "ParentID": "BR-001",
+        "Type": "SubCategory",
+        "Name": "LANA"
+    },
+    {
+        "ID": "SC-003",
+        "ParentID": "BR-001",
+        "Type": "SubCategory",
+        "Name": "RELX"
+    },
+    {
+        "ID": "SC-004",
+        "ParentID": "BR-001",
+        "Type": "SubCategory",
+        "Name": "SP2"
+    },
+    {
+        "ID": "SC-005",
+        "ParentID": "BR-001",
+        "Type": "SubCategory",
+        "Name": "ZEUZ"
+    },
+    {
+        "ID": "SC-006",
+        "ParentID": "BR-001",
+        "Type": "SubCategory",
+        "Name": "R-ONE"
+    },
+    {
+        "ID": "SC-007",
+        "ParentID": "BR-002",
+        "Type": "SubCategory",
+        "Name": "LANA"
+    },
+    {
+        "ID": "SC-008",
+        "ParentID": "BR-002",
+        "Type": "SubCategory",
+        "Name": "ZEUZ"
+    },
+    {
+        "ID": "SC-009",
+        "ParentID": "BR-002",
+        "Type": "SubCategory",
+        "Name": "AKSO"
+    },
+    {
+        "ID": "SC-010",
+        "ParentID": "BR-002",
+        "Type": "SubCategory",
+        "Name": "VAPENGINE"
+    },
+    {
+        "ID": "SC-011",
+        "ParentID": "BR-002",
+        "Type": "SubCategory",
+        "Name": "DAZE EGG"
+    },
+    {
+        "ID": "SC-012",
+        "ParentID": "BR-002",
+        "Type": "SubCategory",
+        "Name": "GEEKBAR PSG"
+    },
+    {
+        "ID": "SC-013",
+        "ParentID": "BR-002",
+        "Type": "SubCategory",
+        "Name": "KING-X PRO"
+    },
+    {
+        "ID": "SC-014",
+        "ParentID": "BR-002",
+        "Type": "SubCategory",
+        "Name": "BIG BANG"
+    },
+    {
+        "ID": "SC-015",
+        "ParentID": "BR-002",
+        "Type": "SubCategory",
+        "Name": "ALADDIN"
+    },
+    {
+        "ID": "SC-016",
+        "ParentID": "BR-002",
+        "Type": "SubCategory",
+        "Name": "VAPECAM"
+    },
+    {
+        "ID": "SC-017",
+        "ParentID": "BR-002",
+        "Type": "SubCategory",
+        "Name": "ELF BAR"
+    },
+    {
+        "ID": "SC-018",
+        "ParentID": "BR-002",
+        "Type": "SubCategory",
+        "Name": "CALIBURN"
+    },
+    {
+        "ID": "SC-019",
+        "ParentID": "BR-003",
+        "Type": "SubCategory",
+        "Name": "LANA"
+    },
+    {
+        "ID": "SC-020",
+        "ParentID": "BR-003",
+        "Type": "SubCategory",
+        "Name": "ZEUZ"
+    },
+    {
+        "ID": "SC-021",
+        "ParentID": "BR-003",
+        "Type": "SubCategory",
+        "Name": "SP2"
+    },
+    {
+        "ID": "SC-022",
+        "ParentID": "BR-003",
+        "Type": "SubCategory",
+        "Name": "RELX"
+    },
+    {
+        "ID": "SC-023",
+        "ParentID": "BR-003",
+        "Type": "SubCategory",
+        "Name": "R-ONE"
+    },
+    {
+        "ID": "SSC-001",
+        "ParentID": "SC-001",
+        "Type": "SubSubCategory",
+        "Name": "DD CUBE"
+    },
+    {
+        "ID": "SSC-002",
+        "ParentID": "SC-001",
+        "Type": "SubSubCategory",
+        "Name": "DD3 DEVICE"
+    },
+    {
+        "ID": "SSC-003",
+        "ParentID": "SC-001",
+        "Type": "SubSubCategory",
+        "Name": "DD TOUCH"
+    },
+    {
+        "ID": "SSC-004",
+        "ParentID": "SC-002",
+        "Type": "SubSubCategory",
+        "Name": "LANA DEVICE 2 (INFINITY)"
+    },
+    {
+        "ID": "SSC-005",
+        "ParentID": "SC-002",
+        "Type": "SubSubCategory",
+        "Name": "LANA MATTE DEVICE"
+    },
+    {
+        "ID": "SSC-006",
+        "ParentID": "SC-002",
+        "Type": "SubSubCategory",
+        "Name": "LANA PREMIUM DEVICE"
+    },
+    {
+        "ID": "SSC-007",
+        "ParentID": "SC-002",
+        "Type": "SubSubCategory",
+        "Name": "LANA V2 DEVICE"
+    },
+    {
+        "ID": "SSC-008",
+        "ParentID": "SC-003",
+        "Type": "SubSubCategory",
+        "Name": "RELX INFINITY 2 DEVICE"
+    },
+    {
+        "ID": "SSC-009",
+        "ParentID": "SC-004",
+        "Type": "SubSubCategory",
+        "Name": "SP2 DEVICE"
+    },
+    {
+        "ID": "SSC-010",
+        "ParentID": "SC-004",
+        "Type": "SubSubCategory",
+        "Name": "SP2 M DEVICE"
+    },
+    {
+        "ID": "SSC-011",
+        "ParentID": "SC-005",
+        "Type": "SubSubCategory",
+        "Name": "ZEUZ CUBIC DEVICE"
+    },
+    {
+        "ID": "SSC-012",
+        "ParentID": "SC-006",
+        "Type": "SubSubCategory",
+        "Name": "R-SMART DEVICE"
+    },
+    {
+        "ID": "SSC-013",
+        "ParentID": "SC-007",
+        "Type": "SubSubCategory",
+        "Name": "LANA TREND 6K"
+    },
+    {
+        "ID": "SSC-014",
+        "ParentID": "SC-007",
+        "Type": "SubSubCategory",
+        "Name": "LANA BAR 5K"
+    },
+    {
+        "ID": "SSC-015",
+        "ParentID": "SC-007",
+        "Type": "SubSubCategory",
+        "Name": "LANA BLEND 6K"
+    },
+    {
+        "ID": "SSC-016",
+        "ParentID": "SC-007",
+        "Type": "SubSubCategory",
+        "Name": "LANA PEN 2K"
+    },
+    {
+        "ID": "SSC-017",
+        "ParentID": "SC-007",
+        "Type": "SubSubCategory",
+        "Name": "LANA PREMIUM 5.8K"
+    },
+    {
+        "ID": "SSC-018",
+        "ParentID": "SC-007",
+        "Type": "SubSubCategory",
+        "Name": "LANA FIZZ 12K"
+    },
+    {
+        "ID": "SSC-019",
+        "ParentID": "SC-007",
+        "Type": "SubSubCategory",
+        "Name": "LANA PEN PLUS 9K"
+    },
+    {
+        "ID": "SSC-020",
+        "ParentID": "SC-007",
+        "Type": "SubSubCategory",
+        "Name": "LANA BAR BC 6K"
+    },
+    {
+        "ID": "SSC-021",
+        "ParentID": "SC-007",
+        "Type": "SubSubCategory",
+        "Name": "LANA MINI 600 PUFF"
+    },
+    {
+        "ID": "SSC-022",
+        "ParentID": "SC-007",
+        "Type": "SubSubCategory",
+        "Name": "LANA BAR 5K S.E"
+    },
+    {
+        "ID": "SSC-023",
+        "ParentID": "SC-007",
+        "Type": "SubSubCategory",
+        "Name": "LANA ULTRA 7K"
+    },
+    {
+        "ID": "SSC-024",
+        "ParentID": "SC-007",
+        "Type": "SubSubCategory",
+        "Name": "LANA 7K YOGURT"
+    },
+    {
+        "ID": "SSC-025",
+        "ParentID": "SC-007",
+        "Type": "SubSubCategory",
+        "Name": "LANA OPAL 8K"
+    },
+    {
+        "ID": "SSC-026",
+        "ParentID": "SC-008",
+        "Type": "SubSubCategory",
+        "Name": "DIAMOND 12K"
+    },
+    {
+        "ID": "SSC-027",
+        "ParentID": "SC-008",
+        "Type": "SubSubCategory",
+        "Name": "ZEUZ PEN PLUS 6K"
+    },
+    {
+        "ID": "SSC-028",
+        "ParentID": "SC-008",
+        "Type": "SubSubCategory",
+        "Name": "ZEUZ STIX 2.5K"
+    },
+    {
+        "ID": "SSC-029",
+        "ParentID": "SSC-026",
+        "Type": "SubSubCategory",
+        "Name": "NORMAL SERIES"
+    },
+    {
+        "ID": "SSC-030",
+        "ParentID": "SSC-026",
+        "Type": "SubSubCategory",
+        "Name": "FROZEN SERIES"
+    },
+    {
+        "ID": "SSC-031",
+        "ParentID": "SC-009",
+        "Type": "SubSubCategory",
+        "Name": "AKSO SUPA 9.5K"
+    },
+    {
+        "ID": "SSC-032",
+        "ParentID": "SC-009",
+        "Type": "SubSubCategory",
+        "Name": "AKSO STICK 2K"
+    },
+    {
+        "ID": "SSC-033",
+        "ParentID": "SC-009",
+        "Type": "SubSubCategory",
+        "Name": "AKSO SUPA PRO/NOVA 12K"
+    },
+    {
+        "ID": "SSC-034",
+        "ParentID": "SSC-033",
+        "Type": "SubSubCategory",
+        "Name": "AKSO SUPA PRO FULL SET"
+    },
+    {
+        "ID": "SSC-035",
+        "ParentID": "SSC-033",
+        "Type": "SubSubCategory",
+        "Name": "AKSO SUPA PRO CART ONLY"
+    },
+    {
+        "ID": "SSC-036",
+        "ParentID": "SC-010",
+        "Type": "SubSubCategory",
+        "Name": "12K"
+    },
+    {
+        "ID": "SSC-037",
+        "ParentID": "SC-011",
+        "Type": "SubSubCategory",
+        "Name": "3K"
+    },
+    {
+        "ID": "SSC-038",
+        "ParentID": "SC-012",
+        "Type": "SubSubCategory",
+        "Name": "9K"
+    },
+    {
+        "ID": "SSC-039",
+        "ParentID": "SC-013",
+        "Type": "SubSubCategory",
+        "Name": "12K"
+    },
+    {
+        "ID": "SSC-040",
+        "ParentID": "SC-014",
+        "Type": "SubSubCategory",
+        "Name": "BIG BANG FULL SET"
+    },
+    {
+        "ID": "SSC-041",
+        "ParentID": "SC-014",
+        "Type": "SubSubCategory",
+        "Name": "BIG BANG CART ONLY"
+    },
+    {
+        "ID": "SSC-042",
+        "ParentID": "SC-015",
+        "Type": "SubSubCategory",
+        "Name": "ALADDIN ENJOY BOX 12K"
+    },
+    {
+        "ID": "SSC-043",
+        "ParentID": "SC-016",
+        "Type": "SubSubCategory",
+        "Name": "VAPECAM 12K FULL SET"
+    },
+    {
+        "ID": "SSC-044",
+        "ParentID": "SC-016",
+        "Type": "SubSubCategory",
+        "Name": "VAPECAM 12K CART ONLY"
+    },
+    {
+        "ID": "SSC-045",
+        "ParentID": "SC-017",
+        "Type": "SubSubCategory",
+        "Name": "ELF BAR LOST MARY 10K"
+    },
+    {
+        "ID": "SSC-046",
+        "ParentID": "SC-017",
+        "Type": "SubSubCategory",
+        "Name": "ELF BAR LOWIT 12K"
+    },
+    {
+        "ID": "SSC-047",
+        "ParentID": "SC-018",
+        "Type": "SubSubCategory",
+        "Name": "CALIBURN KOKO 12K"
+    },
+    {
+        "ID": "SSC-048",
+        "ParentID": "SC-022",
+        "Type": "SubSubCategory",
+        "Name": "RELX CLASSIC"
+    },
+    {
+        "ID": "SSC-049",
+        "ParentID": "SC-022",
+        "Type": "SubSubCategory",
+        "Name": "RELX INFINITY"
+    }
+]

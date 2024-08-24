@@ -1,0 +1,112 @@
+/* Basic Reset */
+body, h1, h2, h3, h4, h5, h6, p, div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #131722; /* Dark background to match the design */
+    color: #ECF0F1; /* Light text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+}
+
+#new-order-button {
+    background-image: linear-gradient(135deg, #E91E63, #9C27B0); /* Gradient color as before */
+    color: white;
+    border: none;
+    padding: 20px 0; /* Adjust padding for better centering */
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 20px rgba(233, 30, 99, 0.7), 0px 0px 20px rgba(171, 71, 188, 0.7);
+    transition: background-image 0.3s, box-shadow 0.3s;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    width: 100%; /* Full width */
+    max-width: 600px; /* Set a maximum width */
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; /* For arrow positioning */
+}
+
+#new-order-button:hover {
+    background-image: linear-gradient(135deg, #D81B60, #8E24AA);
+    box-shadow: 0px 4px 30px rgba(233, 30, 99, 1), 0px 0px 30px rgba(171, 71, 188, 1);
+}
+
+#new-order-button span {
+    margin-right: 10px; /* Space between text and arrow */
+}
+
+#new-order-button::after {
+    content: "➔";
+    font-size: 24px;
+    position: absolute;
+    right: 20px; /* Align arrow to the right */
+}
+
+.separator {
+    border-bottom: 1px solid #ECF0F1;
+    margin: 20px 0;
+}
+
+.date-time {
+    color: #ECF0F1;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.order-list {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: linear-gradient(135deg, #1F1F2E, #2B2B45);
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+    color: white;
+    box-shadow: 0px 4px 20px rgba(171, 71, 188, 0.7), 0px 0px 20px rgba(171, 71, 188, 0.7);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border: 2px solid transparent;
+    background-origin: border-box;
+}
+
+.order-item:hover {
+    box-shadow: 0px 4px 30px rgba(171, 71, 188, 1), 0px 0px 30px rgba(171, 71, 188, 1);
+    border-color: #AB47BC;
+}
+
+.order-icon {
+    font-size: 24px;
+}
+
+.order-text {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.order-arrow {
+    font-size: 24px;
+}

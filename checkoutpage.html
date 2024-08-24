@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="checkoutpage.css">
+</head>
+<body>
+    <div class="checkout-container">
+        <h1>YOUR TROLLEY</h1>
+        <div id="cart-items" class="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <div class="summary">
+            <p>Total Items:</p>
+            <span id="total-items">0</span>
+        </div>
+        <div class="summary">
+            <p>Total Cost:</p>
+            <span id="total-cost">$0.00</span>
+        </div>
+        <button id="checkout-button">CHECKOUT</button>
+    </div>
+
+    <script>
+        // Load the cart from local storage or an empty array if none exists
+        function loadCart() {
+            return JSON.parse(localStorage.getItem('cart')) || [];
+        }
+
+        // Save the cart to local storage
+        function saveCart(cart) {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Update the cart display
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
+            const totalItems = document.getElementById('total-items');
+            const totalCost = document.getElementById('total-cost');
+
+            const cart = loadCart();
+            cartItems.innerHTML = ''; // Clear the existing items
+            let itemCount = 0;
+            let cost = 0;
+
+            cart.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+
+                const itemImg = document.createElement('div');
+                itemImg.classList.add('item-img');
+                itemImg.textContent = '🍼'; // Placeholder emoji for the image
+
+                const itemDetails = document.createElement('div');
+                itemDetails.classList.add('item-details');
+
+                const itemInfo = document.createElement('div');
+                itemInfo.classList.add('item-info');
+
+                const itemName = document.createElement('div');
+                itemName.classList.add('item-name');
+                itemName.innerHTML = `<strong>${item.name}</strong><br>${item.note || ''}`;
+
+                const itemControls = document.createElement('div');
+                itemControls.classList.add('item-controls');
+
+                const minusButton = document.createElement('button');
+                minusButton.classList.add('quantity-button');
+                minusButton.textContent = '-';
+                minusButton.onclick = () => {
+                    if (item.quantity > 1) {
+                        item.quantity--;
+                    } else {
+                        cart.splice(cart.indexOf(item), 1);
+                    }
+                    saveCart(cart);
+                    updateCartDisplay();
+                };
+
+                const quantitySpan = document.createElement('span');
+                quantitySpan.textContent = item.quantity;
+
+                const plusButton = document.createElement('button');
+                plusButton.classList.add('quantity-button');
+                plusButton.textContent = '+';
+                plusButton.onclick = () => {
+                    item.quantity++;
+                    saveCart(cart);
+                    updateCartDisplay();
+                };
+
+                // Button layout adjustment for +5 and -5
+                if (item.quantity > 5) {
+                    const plus5Button = document.createElement('button');
+                    plus5Button.classList.add('additional-quantity-button');
+                    plus5Button.textContent = '+5';
+                    plus5Button.onclick = () => {
+                        item.quantity += 5;
+                        saveCart(cart);
+                        updateCartDisplay();
+                    };
+                    
+                    const minus5Button = document.createElement('button');
+                    minus5Button.classList.add('additional-quantity-button');
+                    minus5Button.textContent = '-5';
+                    minus5Button.onclick = () => {
+                        item.quantity = item.quantity > 5 ? item.quantity - 5 : 1;
+                        saveCart(cart);
+                        updateCartDisplay();
+                    };
+
+                    itemControls.appendChild(minus5Button);
+                    itemControls.appendChild(minusButton);
+                    itemControls.appendChild(quantitySpan);
+                    itemControls.appendChild(plusButton);
+                    itemControls.appendChild(plus5Button);
+                } else {
+                    itemControls.appendChild(minusButton);
+                    itemControls.appendChild(quantitySpan);
+                    itemControls.appendChild(plusButton);
+                }
+
+                const itemPrice = document.createElement('div');
+                itemPrice.classList.add('item-price');
+                itemPrice.textContent = `$${(item.price * item.quantity).toFixed(2)}`;
+
+                itemInfo.appendChild(itemName);
+                itemInfo.appendChild(itemControls);
+                itemDetails.appendChild(itemInfo);
+                itemDetails.appendChild(itemPrice);
+
+                itemDiv.appendChild(itemImg);
+                itemDiv.appendChild(itemDetails);
+
+                cartItems.appendChild(itemDiv);
+
+                itemCount += item.quantity;
+                cost += item.price * item.quantity;
+            });
+
+            totalItems.textContent = itemCount;
+            totalCost.textContent = `$${cost.toFixed(2)}`;
+
+            // If the cart is empty, hide the checkout button
+            document.getElementById('checkout-button').style.display = cart.length > 0 ? 'block' : 'none';
+        }
+
+        // Initialize the cart display
+        updateCartDisplay();
+    </script>
+</body>
+</html>

@@ -1,0 +1,947 @@
+[
+    {
+        "ID": "ITM1-001",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "APPLE ASAM BOI",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-002",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "BLACKCURRANT YAKULT",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-003",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "CREAMY MILK",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-004",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "GUAVA ASAM",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-005",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "MANGO YAKULT",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-006",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "VANILLA LATTE",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-007",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "BLACKBERRY ICE",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-008",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "GRAPE ICE",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-009",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "GREEN GRAPE",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-010",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "ICE CREAM CAKE",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-011",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "LYCHEE LONGAN",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-012",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "MANGO ICE",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-013",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "MELONY GUM",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-014",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "NUTTY TOBACCO",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-015",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "ROOTBEER",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-016",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "SOLERO",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-017",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "STRAWBERRY GUM",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-018",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "STRAWBERRY VANILLA DONUT",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-019",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "SUPER ICE MINT",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-020",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "TARO ICE CREAM",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-021",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "WATERMELON ICE",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM1-022",
+        "ParentID": "SSC-031",
+        "Type": "ItemList",
+        "Name": "YAKULT",
+        "Qty": 0,
+        "ParentName": "AKSO 9.5K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM2-001",
+        "ParentID": "SSC-032",
+        "Type": "ItemList",
+        "Name": "GRAPE ICE",
+        "Qty": 0,
+        "ParentName": "AKSO STICK 2K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM2-002",
+        "ParentID": "SSC-032",
+        "Type": "ItemList",
+        "Name": "MANGO ICE",
+        "Qty": 0,
+        "ParentName": "AKSO STICK 2K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM2-003",
+        "ParentID": "SSC-032",
+        "Type": "ItemList",
+        "Name": "NUTTY TOBACCO",
+        "Qty": 0,
+        "ParentName": "AKSO STICK 2K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM2-004",
+        "ParentID": "SSC-032",
+        "Type": "ItemList",
+        "Name": "WHITE COFFEE",
+        "Qty": 0,
+        "ParentName": "AKSO STICK 2K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM2-005",
+        "ParentID": "SSC-032",
+        "Type": "ItemList",
+        "Name": "YOGHURT",
+        "Qty": 0,
+        "ParentName": "AKSO STICK 2K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM2-006",
+        "ParentID": "SSC-032",
+        "Type": "ItemList",
+        "Name": "GRAPE GUM",
+        "Qty": 0,
+        "ParentName": "AKSO STICK 2K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM2-007",
+        "ParentID": "SSC-032",
+        "Type": "ItemList",
+        "Name": "LYCHEE LONGAN",
+        "Qty": 0,
+        "ParentName": "AKSO STICK 2K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM2-008",
+        "ParentID": "SSC-032",
+        "Type": "ItemList",
+        "Name": "SUPER ICE MINT",
+        "Qty": 0,
+        "ParentName": "AKSO STICK 2K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM2-009",
+        "ParentID": "SSC-032",
+        "Type": "ItemList",
+        "Name": "WATERMELON",
+        "Qty": 0,
+        "ParentName": "AKSO STICK 2K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM2-010",
+        "ParentID": "SSC-032",
+        "Type": "ItemList",
+        "Name": "ROOTBEER ICE",
+        "Qty": 0,
+        "ParentName": "AKSO STICK 2K",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-001",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "APPLE CUSTARD",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-002",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "BLACKCURRANT",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-003",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "BUTTER MINT CANDY",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-004",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "CHOCOLATE MINT",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-005",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "CRANBERRY GRAPE",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-006",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "GRAPE GUM",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-007",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "HONEYDEW BLACKCURRENT",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-008",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "MANGO PASSION GRAE",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-009",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "MILK CARAMEL",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-010",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "MINTY GUM",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-011",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "PASSION SOUROP MANGO",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-012",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "PEANUT BUTTER TOAST",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-013",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "ROOTBEER",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-014",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "STRAWBERRY",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-015",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "STRAWBERRY MANGO",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-016",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "TRIPLE MANGO",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-017",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "YAM CHEESE",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-018",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "HONEYDEW",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-019",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "MANGO",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-020",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "OAT CRUNCH",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-021",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "STRAWBERRY BANANA CUSTARD",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-022",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "WATERMELON GUMMY",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-023",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "WHITE GRAPE",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM3-024",
+        "ParentID": "SSC-034",
+        "Type": "ItemList",
+        "Name": "SIRUP BANDUNG",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova Full Kit",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-001",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "APPLE ALOE VERA",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-002",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "BLACKCURRANT",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-003",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "BLUEBERRY KIWI",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-004",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "BUBBLEGRAPE",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-005",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "BUTTER MINT CANDY",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-006",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "CHOCOLATE MINT",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-007",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "ENERGY DRINK",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-008",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "GRAPE APPLE",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-009",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "HONEYDEW BLACKCURRENT",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-010",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "ICE COFFEE HAZELNUT",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-011",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "LEMON COLA",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-012",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "MANGO MANGOSTEEN",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-013",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "MELON HONEYDEW",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-014",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "MINT",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-015",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "OAT CRUNCH",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-016",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "PASSION GRAPE",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-017",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "PASSION LYCHEE",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-018",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "PEANUT BUTTER TOAST",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-019",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "PINA WATERMELON STRAWBERRY",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-020",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "POMEGRANATE PLUM GUAVA",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-021",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "STRAWBERRY",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-022",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "STRAWBERRY BANANA CUSTARD",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-023",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "STRAWBERRY VANILLA CUSTARD",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-024",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "STRAWBERRY WATERMELON",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-025",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "SUPER MINT",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-026",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "WATERMELON GRAPE",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-027",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "WATERMELON GUM",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-028",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "WATERMELON ICE",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-029",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "YAM CHEESE",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-030",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "GRAPE",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-031",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "HONEYDEW",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-032",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "STRAWBERRY MANGO",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-033",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "BLACKCURRANT YAKULT",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-034",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "TEA GUAN YIN",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-035",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "LYCHEE LONGAN",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-036",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "APPLE ASAM BOI",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-037",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "GRAPE GUM",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-038",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "MANGO",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-039",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "MANGO LIME",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-040",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "MANGO NATA DE COCO",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-041",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "NUTTY TOBACCO",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-042",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "OOLONG GREEN TEA",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-043",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "PINEAPPLE MANGO",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-044",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "ROOTBEER",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-045",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "SIRUP BANDUNG",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-046",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "STRAWBERRY HAMI MELON",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-047",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "TRIPLE MANGO",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM4-048",
+        "ParentID": "SSC-035",
+        "Type": "ItemList",
+        "Name": "ZESTY GRAPE",
+        "Qty": 0,
+        "ParentName": "Akso Supa Nova CART Only",
+        "Code": "Akso"
+    },
+    {
+        "ID": "ITM5-001",
+        "ParentID": "SSC-036",
+        "Type": "ItemList",
+        "Name": "CREAM PUDDING",
+        "Qty": 0,
+        "ParentName": "VAPENGINE",
+        "Code": "12k"
+    }
+]

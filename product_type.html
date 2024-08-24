@@ -12,50 +12,114 @@
 </head>
 <body>
     <script>
-         // Expand the mini-app
-         window.Telegram.WebApp.expand();
-            
-        // Show the back button
-        window.Telegram.WebApp.BackButton.show();
+        let historyStack = []; // Stack to track navigation history
+    
+        // Function to load JSON data
+        async function loadBrands() {
+            const response = await fetch('brands.json');
+            const brands = await response.json();
+            return brands;
+        }
+    
+        // Function to generate buttons based on ParentID
+        // Function to generate buttons based on ParentID
+function generateButtons(brands, parentId = 0) {
+    console.log('Generating buttons for ParentID:', parentId);
+    const buttonList = document.getElementById('button-list');
+    buttonList.innerHTML = ''; // Clear any existing buttons
 
-        // Set up the back button click behavior
-        window.Telegram.WebApp.BackButton.onClick(function() {
-            window.location.href = 'order.html'; // Navigate to the previous page
+    const filteredBrands = brands.filter(brand => brand.ParentID === parentId);
+
+    // Find the current brand (to set the title)
+    const currentBrand = brands.find(brand => brand.ID === parentId);
+        if (currentBrand) {
+            document.getElementById('page-title').textContent = currentBrand.Name;
+        } else {
+            document.getElementById('page-title').textContent = 'TYPE'; // Default for the root page
+        }
+
+    filteredBrands.forEach(brand => {
+        const button = document.createElement('a');
+        button.href = '#';
+        button.className = 'type-button';
+        button.innerHTML = `
+            <span class="icon">🌐</span>
+            <span class="text">${brand.Name}</span>
+            <span class="arrow">➔</span>
+        `;
+        button.addEventListener('click', async () => {
+            console.log('Button clicked, navigating to IDD:', brand.ID);
+            console.log('This is the brand Type : ', brand.Type);
+            
+            // Load items.json and check if there are items with this brand's ID as ParentID
+            const items = await loadItems(); // Assuming loadItems function exists
+            const matchingItems = items.filter(item => item.ParentID === brand.ID);
+
+            if (matchingItems.length > 0) {
+                console.log("Navigating to items page");
+                window.location.href = `item.html?parentId=${brand.ID}`;
+            } else {
+                console.log("Navigating to next category level");
+                historyStack.push(parentId); // Save current level before moving deeper
+                console.log('History Stack after push:', historyStack);
+                generateButtons(brands, brand.ID); // Load subcategories or items
+            }
+        });
+        buttonList.appendChild(button);
+    });
+
+    // Adjust the back button behavior for HTML button
+    document.querySelector('.manual-back-button').onclick = function(event) {
+        event.preventDefault(); // Prevent the default link behavior
+        console.log('Manual back button clicked');
+        handleBackButton(brands);
+    };
+
+    // Adjust the back button behavior for Telegram button
+    window.Telegram.WebApp.BackButton.onClick(function() {
+        console.log('Telegram back button clicked');
+        handleBackButton(brands);
+    });
+}
+
+// Function to load items JSON data
+async function loadItems() {
+    const response = await fetch('items.json');
+    const items = await response.json();
+    return items;
+}
+
+
+        // Function to handle back button logic
+        function handleBackButton(brands) {
+            console.log('Handling back button logic');
+            if (historyStack.length > 0) {
+                const previousParentId = historyStack.pop(); // Go back to the previous level
+                console.log('Navigating back to ParentID:', previousParentId);
+                generateButtons(brands, previousParentId);
+            } else {
+                console.log('At root, going back to order.html');
+                window.location.href = 'order.html'; // If at root, go back to the order page
+            }
+        }
+    
+        // Load brands and initialize buttons
+        loadBrands().then(brands => {
+            console.log('Brands loaded:', brands);
+            generateButtons(brands); // Start with ParentID = 0
         });
     </script>
+    
+    
     <!-- Manual Back Button with Arrow -->
     <a href="order.html" class="manual-back-button">
-        <span class="arrow">←</span> <!-- Back Arrow -->
+        <span class="arrow">←</span>
     </a>
- 
+
     <div class="container">
-        <h1>TYPE</h1>
-        <div class="button-list">
-            <a href="#" class="type-button" onclick="window.location.href='item.html?type=1'">
-                <span class="icon">🌐</span>
-                <span class="text">edit again la</span>
-                <span class="arrow">➔</span>
-            </a>
-            <a href="#" class="type-button">
-                <span class="icon">🌐</span>
-                <span class="text">DISPOSABLE</span>
-                <span class="arrow">➔</span>
-            </a>
-            <a href="#" class="type-button">
-                <span class="icon">🌐</span>
-                <span class="text">HEATED TOBACCO</span>
-                <span class="arrow">➔</span>
-            </a>
-            <a href="#" class="type-button">
-                <span class="icon">🌐</span>
-                <span class="text">PARTY AID</span>
-                <span class="arrow">➔</span>
-            </a>
-            <a href="#" class="type-button">
-                <span class="icon">🌐</span>
-                <span class="text">POD</span>
-                <span class="arrow">➔</span>
-            </a>
+        <h1 id="page-title">TYPE</h1>
+        <div id="button-list" class="button-list">
+            <!-- Buttons will be dynamically inserted here -->
         </div>
     </div>
 </body>

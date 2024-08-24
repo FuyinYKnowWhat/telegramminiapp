@@ -12,119 +12,261 @@
 <body>
     <div class="main-container">
         <div class="content-container">
-            <h1>7K ULTRA</h1>
+            <h1 id="category-name">Items</h1>
             <div class="container" id="items-container">
                 <!-- Items will be dynamically generated here -->
             </div>
         </div>
         <div id="view-trolley-container">
-            <button id="view-trolley">VIEW TROLLEY</button>
+            <button id="view-trolley" style="display: none;">VIEW TROLLEY</button>
         </div>
     </div>
 
     <script>
-    const items = [
-        { name: "Chilled Watermelon", price: 10 },
-        { name: "Cool Sarsi", price: 10 },
-        { name: "Doublemint", price: 10 },
-        { name: "Grape Honey", price: 10 },
-        { name: "Grape Ribena", price: 10 },
-        { name: "Lemon Cola", price: 10 },
-        { name: "Lemon Grapefruit", price: 10 },
-        { name: "Mango Yakult", price: 10 },
-        { name: "Mixed Berries", price: 10 },
-    ];
+        let cartItemCount = 0; // Initialize cart item count
 
-    const container = document.getElementById('items-container');
-    const trolleyButton = document.getElementById('view-trolley-container');
-    let cartItemCount = 0;
+        // Load items from JSON
+        async function loadItems() {
+            const response = await fetch('items.json');
+            const items = await response.json();
+            return items;
+        }
 
-    items.forEach((item) => {
-        const itemDiv = document.createElement('div');
-        itemDiv.classList.add('item');
+        // Load prices from JSON
+        async function loadPrices() {
+            const response = await fetch('prices.json');
+            const prices = await response.json();
+            return prices;
+        }
 
-        const itemImg = document.createElement('div');
-        itemImg.classList.add('item-img');
-        itemImg.textContent = '🍼'; // Placeholder emoji for the image
-        
-        const itemName = document.createElement('p');
-        itemName.textContent = item.name;
+        // Get parent ID from URL parameters (e.g., item.html?parentId=1)
+        function getParentIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const parentId = urlParams.get('parentId');
+            return parentId || '0'; // Return '0' if parentId is not found
+        }
 
-        const itemPrice = document.createElement('p');
-        itemPrice.textContent = `$${item.price}`;
+        // Filter items based on ParentID
+        function filterItemsByParentId(items, parentId) {
+            return items.filter(item => item.ParentID === parentId);
+        }
 
-        const addButton = document.createElement('button');
-        addButton.textContent = 'ADD';
-        addButton.onclick = () => {
-            addButton.style.display = 'none';
-            quantityControls.style.display = 'flex';
-            updateBadge(itemImg, 1);
-            cartItemCount++;
-            document.getElementById('view-trolley').style.display = 'block'; // Show trolley button when an item is added
-        };
+        // Get price for an item from the prices list based on ParentID
+        function getPriceForItem(parentId, prices) {
+            const priceRecord = prices.find(price => price.ItemID === parentId);
+            return priceRecord ? priceRecord.Price : "NA";
+        }
 
-        const quantityControls = document.createElement('div');
-        quantityControls.classList.add('quantity-controls');
-        
-        const minusButton = document.createElement('button');
-        minusButton.textContent = '-';
-        minusButton.onclick = () => {
-            let quantity = parseInt(quantitySpan.textContent);
-            if (quantity > 1) {
-                quantity -= 1;
-                updateBadge(itemImg, quantity);
-            } else {
-                quantityControls.style.display = 'none';
-                addButton.style.display = 'block';
-                removeBadge(itemImg);
-                cartItemCount--;
-                if (cartItemCount === 0) {
-                    document.getElementById('view-trolley').style.display = 'none'; // Hide trolley button if no items in cart
+        // Load cart from local storage
+        function loadCart() {
+            return JSON.parse(localStorage.getItem('cart')) || [];
+        }
+
+        function generateItemHtml(item, prices, cart) {
+            const itemDiv = document.createElement('div');
+            itemDiv.classList.add('item');
+
+            const itemImg = document.createElement('div');
+            itemImg.classList.add('item-img');
+
+            // Create container for the icon
+            const iconContainer = document.createElement('div');
+            iconContainer.classList.add('icon-container');
+            iconContainer.textContent = '🍼'; // Placeholder emoji for the icon
+
+            // Create container for the badge
+            const badgeContainer = document.createElement('div');
+            badgeContainer.classList.add('badge-container');
+
+            itemImg.appendChild(iconContainer);
+            itemImg.appendChild(badgeContainer);
+
+            const itemName = document.createElement('p');
+            itemName.textContent = item.Name;
+
+            const itemPrice = document.createElement('p');
+            const price = getPriceForItem(item.ParentID, prices);
+            itemPrice.textContent = price === "NA" ? "NA" : `$${price}`;
+
+            const addButton = document.createElement('button');
+            addButton.textContent = 'ADD';
+            
+            const quantityControls = document.createElement('div');
+            quantityControls.classList.add('quantity-controls');
+            quantityControls.style.display = 'none'; // Initially hidden until "ADD" is clicked
+
+            const minusButton = document.createElement('button');
+            minusButton.textContent = '-';
+            minusButton.onclick = () => {
+                let quantity = parseInt(quantitySpan.textContent);
+                if (quantity > 1) {
+                    quantity -= 1;
+                    updateBadge(badgeContainer, quantity);
+                    updateCart(item, quantity);
+                } else {
+                    quantityControls.style.display = 'none';
+                    addButton.style.display = 'block';
+                    removeBadge(badgeContainer);
+                    removeFromCart(item);
+                    cartItemCount--;
+                    if (cartItemCount === 0) {
+                        document.getElementById('view-trolley').style.display = 'none'; // Hide trolley button if no items in cart
+                    }
                 }
+                quantitySpan.textContent = quantity;
+            };
+
+    const plusButton = document.createElement('button');
+    plusButton.textContent = '+';
+    plusButton.onclick = () => {
+        let quantity = parseInt(quantitySpan.textContent) + 1;
+        quantitySpan.textContent = quantity;
+        updateBadge(badgeContainer, quantity);
+        updateCart(item, quantity);
+    };
+
+    const quantitySpan = document.createElement('span');
+    quantitySpan.textContent = '1';
+
+    quantityControls.appendChild(minusButton);
+    quantityControls.appendChild(quantitySpan);
+    quantityControls.appendChild(plusButton);
+
+    // Check if the item is in the cart
+    const cartItem = cart.find(cartItem => cartItem.ID === item.ID);
+    if (cartItem) {
+        quantitySpan.textContent = cartItem.quantity;
+        addButton.style.display = 'none';
+        quantityControls.style.display = 'flex';
+        updateBadge(badgeContainer, cartItem.quantity);
+        cartItemCount += cartItem.quantity;
+        document.getElementById('view-trolley').style.display = 'block'; // Show trolley button if there are items in the cart
+    }
+
+    addButton.onclick = () => {
+        addButton.style.display = 'none';
+        quantityControls.style.display = 'flex';
+        updateBadge(badgeContainer, 1);
+        cartItemCount++;
+        addToCart(item, price);
+        document.getElementById('view-trolley').style.display = 'block'; // Show trolley button when an item is added
+    };
+
+    itemDiv.appendChild(itemImg);
+    itemDiv.appendChild(itemName);
+    itemDiv.appendChild(itemPrice);
+    itemDiv.appendChild(addButton);
+    itemDiv.appendChild(quantityControls);
+
+    return itemDiv;
+}
+
+        // Function to update badge on the item image
+        function updateBadge(badgeContainer, quantity) {
+            let badge = badgeContainer.querySelector('.badge');
+            if (!badge) {
+                badge = document.createElement('div');
+                badge.classList.add('badge');
+                badgeContainer.appendChild(badge);
             }
-            quantitySpan.textContent = quantity;
-        };
-
-        const plusButton = document.createElement('button');
-        plusButton.textContent = '+';
-        plusButton.onclick = () => {
-            let quantity = parseInt(quantitySpan.textContent) + 1;
-            quantitySpan.textContent = quantity;
-            updateBadge(itemImg, quantity);
-        };
-
-        const quantitySpan = document.createElement('span');
-        quantitySpan.textContent = '1';
-
-        quantityControls.appendChild(minusButton);
-        quantityControls.appendChild(quantitySpan);
-        quantityControls.appendChild(plusButton);
-
-        itemDiv.appendChild(itemImg);
-        itemDiv.appendChild(itemName);
-        itemDiv.appendChild(itemPrice);
-        itemDiv.appendChild(addButton);
-        itemDiv.appendChild(quantityControls);
-
-        container.appendChild(itemDiv);
-    });
-
-    function updateBadge(imgElement, quantity) {
-        let badge = imgElement.parentElement.querySelector('.badge');
-        if (!badge) {
-            badge = document.createElement('div');
-            badge.classList.add('badge');
-            imgElement.parentElement.appendChild(badge);
+            badge.textContent = quantity;
         }
-        badge.textContent = quantity;
-    }
 
-    function removeBadge(imgElement) {
-        const badge = imgElement.parentElement.querySelector('.badge');
-        if (badge) {
-            badge.remove();
+        // Function to remove badge from the item image
+        function removeBadge(badgeContainer) {
+            const badge = badgeContainer.querySelector('.badge');
+            if (badge) {
+                badge.remove();
+            }
         }
-    }
+
+        // Add item to the cart and save to local storage
+        function addToCart(item, price) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingItem = cart.find(cartItem => cartItem.ID === item.ID);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ID: item.ID,
+                    name: item.Name,
+                    quantity: 1,
+                    price: price,
+                    note: item.NoteParentName,
+                });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Update item quantity in the cart and save to local storage
+        function updateCart(item, quantity) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingItem = cart.find(cartItem => cartItem.ID === item.ID);
+            if (existingItem) {
+                existingItem.quantity = quantity;
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+        }
+
+        // Remove item from the cart and save to local storage
+        function removeFromCart(item) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(cartItem => cartItem.ID !== item.ID);
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Redirect to the checkout page when "View Trolley" button is clicked
+        document.getElementById('view-trolley').addEventListener('click', () => {
+            window.location.href = 'checkoutpage.html';
+        });
+
+         // Initialize page and set up pageshow event listener
+        async function initializePage() {
+            await updatePageWithItems();
+
+            // Add an event listener for the pageshow event to refresh the page when navigating back
+            window.addEventListener('pageshow', async function(event) {
+                if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+                    // Refresh the items page
+                    cartItemCount = 0; // Reset cart item count
+                    await updatePageWithItems();
+                }
+            });
+        }
+
+       // Clear and reload items based on the latest cart data
+        async function updatePageWithItems() {
+            const items = await loadItems();
+            const prices = await loadPrices();
+            const parentId = getParentIdFromUrl();
+            const cart = loadCart();
+            const filteredItems = filterItemsByParentId(items, parentId);
+            const container = document.getElementById('items-container');
+            container.innerHTML = ''; // Clear any existing content
+
+            // Update cart item count to ensure it's accurate
+            cartItemCount = 0;
+
+            filteredItems.forEach(item => {
+                const cartItem = cart.find(cartItem => cartItem.ID === item.ID);
+                if (cartItem) {
+                    // Update cart item count based on current cart state
+                    cartItemCount += cartItem.quantity;
+                }
+                const itemHtml = generateItemHtml(item, prices, cart);
+                container.appendChild(itemHtml);
+            });
+
+            // Show or hide the trolley button based on cart content
+            document.getElementById('view-trolley').style.display = cartItemCount > 0 ? 'block' : 'none';
+
+            // Optionally set category name
+            const categoryName = filteredItems.length > 0 ? filteredItems[0].ParentName : 'Items';
+            document.getElementById('category-name').textContent = categoryName;
+        }
+        
+        // Call the initializePage function when the script loads
+        initializePage();
 
     </script>
 </body>

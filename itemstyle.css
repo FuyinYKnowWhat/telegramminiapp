@@ -49,10 +49,26 @@ body {
     height: 200px;
 }
 
+/* Updated Styles */
 .item-img {
-    font-size: 40px;
-    margin-bottom: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.icon-container {
+    font-size: 40px;
+    position: relative; /* Necessary for absolute positioning of the badge */
+}
+
+.badge-container {
+    position: absolute;
+    top: -5px; /* Adjust as needed for perfect alignment */
+    right: -5px; /* Adjust as needed for perfect alignment */
+}
+
 
 .item p {
     margin: 3px 0;
@@ -114,11 +130,15 @@ body {
 }
 
 .badge {
-    position: absolute;
-    top: 5px;
-    right: 5px;
     background-color: #007bff;
     color: white;
-    border-radius: 50%;
-    padding: 5px 8px;
+    border-radius: 50%; /* Ensures it's circular */
+    padding: 5px; /* Adjust padding to make the circle maintain its shape */
+    font-size: 35px; /* Increased font size */
+    line-height: 1; /* Ensures the text is centered vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px; /* Set the width equal to the height */
+    height: 35px; /* Set the height to match the font size */
 }
